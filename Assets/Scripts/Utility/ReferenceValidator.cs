@@ -9,42 +9,61 @@ namespace Utility
     public static class ReferenceValidator
     {
         public static void CheckComponentForNull<TComponent>(ref TComponent component, GameObject gameObject,
-            ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Component
-        {
-#if UNITY_EDITOR
-            component ??= gameObject.GetComponent<TComponent>();
-            if (component == null && gameObject != null) Logging.LogNullReferenceError(nameof(component), severity, gameObject);
-            else Logging.LogNullReferenceError(nameof(component), severity, gameObject);
-            if (preventPlay) EditorApplication.isPlaying = false;
-#endif
-        }
-
-        public static void CheckComponentForNull<TComponent>(ref TComponent component, GameObject gameObject,
             string componentName, ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Component
         {
-#if UNITY_EDITOR
             component ??= gameObject.GetComponent<TComponent>();
             if (component == null && gameObject != null) Logging.LogNullReferenceError(componentName, severity, gameObject);
             if (preventPlay) EditorApplication.isPlaying = false;
-#endif
+        }
+        
+        public static void CheckComponentForNull<TComponent>(ref TComponent component, GameObject gameObject,
+            ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Component
+        {
+            CheckComponentForNull(ref component, gameObject, nameof(component), severity, preventPlay);
+        }
+        
+        public static void CheckComponentForNull<TComponent>(ref TComponent component, GameObject gameObject, out bool wasNull,
+            string componentName = nameof(Component), ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Component
+        {
+            component ??= gameObject.GetComponent<TComponent>();
+            if (component == null && gameObject != null)
+            {
+                Logging.LogNullReferenceError(componentName, severity, gameObject);
+                wasNull = true;
+            }
+            else wasNull = false;
+            if (preventPlay) EditorApplication.isPlaying = false;
+        }
+
+        public static void CheckComponentForNullChild<TComponent>(ref TComponent component, GameObject gameObject,
+            ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Component
+        {
+            component ??= gameObject.GetComponentInChildren<TComponent>();
+            if (component == null && gameObject != null) Logging.LogNullReferenceError(nameof(component), severity, gameObject);
+            if (preventPlay) EditorApplication.isPlaying = false;
+        }
+
+        public static void CheckComponentForNullChild<TComponent>(ref TComponent component, GameObject gameObject,
+            string componentName, ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false)
+            where TComponent : Component
+        {
+            component ??= gameObject.GetComponentInChildren<TComponent>();
+            if (component == null && gameObject != null) Logging.LogNullReferenceError(componentName, severity, gameObject);
+            if (preventPlay) EditorApplication.isPlaying = false;
         }
 
         public static void CheckGameObjectForNull<TComponent>(ref TComponent component,
             ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Object
         {
-#if UNITY_EDITOR
             if (component == null) Logging.LogNullReferenceError(nameof(component), severity);
             if (preventPlay) EditorApplication.isPlaying = false;
-#endif
         }
 
         public static void CheckGameObjectForNull<TComponent>(ref TComponent component, string componentName,
             ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Object
         {
-#if UNITY_EDITOR
             if (component == null) Logging.LogNullReferenceError(componentName, severity);
             if (preventPlay) EditorApplication.isPlaying = false;
-#endif
         }
     }   
 

@@ -7,25 +7,18 @@ using Utility;
 public abstract class AddThingScript<TValidTarget> : MonoBehaviour where TValidTarget : MonoBehaviour
 {
     [Tooltip("Used to check if gameObject has a collider or not. Fill reference if possible")]
-    [SerializeField] private new Collider2D collider;
+    [SerializeField] protected new Collider2D collider;
     [Tooltip("Optional event if user wants extra functionality")]
-    [SerializeField] protected UnityEvent enemyFound;
+    [SerializeField] public UnityEvent itemFound;
     [Tooltip("Optional event if user wants extra functionality")]
-    [SerializeField] protected UnityEvent enemyLost;
-    public Action<TValidTarget> onItemFound;
-    public Action<TValidTarget> OnItemDisappear;
-
-    public int NrFoundEnemySubscribedEvents
-    {
-        get => onItemFound is null ? 0 : onItemFound.GetInvocationList().Length;
-    }
-
-    public int NrLostEnemySubscribedEvents
-    {
-        get => OnItemDisappear is null ? 0 : OnItemDisappear.GetInvocationList().Length;
-    }
+    [SerializeField] public UnityEvent itemLost;
 
     protected void Awake()
+    {
+        CheckReferences();
+    }
+
+    protected virtual void CheckReferences()
     {
         ReferenceValidator.CheckComponentForNull(ref collider, gameObject, ErrorSeverity.Warning);
     }
@@ -33,16 +26,14 @@ public abstract class AddThingScript<TValidTarget> : MonoBehaviour where TValidT
     private void OnTriggerEnter2D(Collider2D other)
     {
         TValidTarget foundObject = other.gameObject.GetComponent<TValidTarget>();
-        if (foundObject is null) return;
-        onItemFound?.Invoke(foundObject);
-        enemyFound?.Invoke();
+        if (foundObject == null) return;
+        itemFound?.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         TValidTarget foundObject = other.gameObject.GetComponent<TValidTarget>();
-        if (foundObject is null) return;
-        OnItemDisappear?.Invoke(foundObject);
-        enemyLost?.Invoke();
+        if (foundObject == null) return;
+        itemLost?.Invoke();
     }
 }
