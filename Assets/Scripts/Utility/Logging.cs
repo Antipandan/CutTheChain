@@ -7,10 +7,6 @@ using Object = UnityEngine.Object;
 
 namespace Utility
 {
-    /// <summary>
-    /// Class that contains functions that handle broadly applicable code and code that is boring / is a slog to rewrite
-    /// If a code snippet fulfills said criteria, a function probably exists in here
-    /// </summary>
     public static class Logging
     {
         #region Public Functions
@@ -140,6 +136,7 @@ namespace Utility
         {
             StandardLoggingOutPut(errorObjectName, severity, ErrorSubject.UnknownError, parentObject, extraLoggingFunction);
         }
+        
 
         #endregion
 

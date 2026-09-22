@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 174a40d99d3d76a42aeecd0ddcb5bda2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3787170625321208815
+    second: Gnomer spritesheet_0
+  - first:
+      213: 3032116325340892056
+    second: Gnomer spritesheet_1
+  - first:
+      213: 2923075975018163366
+    second: Gnomer spritesheet_2
+  - first:
+      213: 3849308594046623029
+    second: Gnomer spritesheet_3
+  - first:
+      213: 3375981626167873875
+    second: Gnomer spritesheet_4
+  - first:
+      213: 6582949754724039532
+    second: Gnomer spritesheet_5
+  - first:
+      213: 3106053041184814171
+    second: Gnomer spritesheet_6
+  - first:
+      213: -2263510147228139582
+    second: Gnomer spritesheet_7
+  - first:
+      213: 7255767412524103586
+    second: Gnomer spritesheet_8
+  - first:
+      213: -1750912734245355540
+    second: Gnomer spritesheet_9
+  - first:
+      213: -3189484363080926796
+    second: Gnomer spritesheet_10
+  - first:
+      213: 2349004094030949040
+    second: Gnomer spritesheet_11
+  - first:
+      213: 6693956587837397207
+    second: Gnomer spritesheet_12
+  - first:
+      213: 2655373605268006662
+    second: Gnomer spritesheet_13
+  - first:
+      213: 8592690029447646204
+    second: Gnomer spritesheet_14
+  - first:
+      213: 2264438242223365673
+    second: Gnomer spritesheet_15
+  - first:
+      213: 2754699508313074969
+    second: Gnomer spritesheet_16
+  - first:
+      213: -5181639397768227968
+    second: Gnomer spritesheet_17
+  - first:
+      213: -6974310118327993029
+    second: Gnomer spritesheet_18
+  - first:
+      213: 3506966621710291376
+    second: Gnomer spritesheet_19
+  - first:
+      213: -7211318056641107134
+    second: Gnomer spritesheet_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gnomer spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1035
+        width: 206
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1147feda164417bc0800000000000000
+      internalID: -3787170625321208815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1034
+        width: 220
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89b4b99abbd341a20800000000000000
+      internalID: 3032116325340892056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1043
+        width: 246
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6acaf66bc1ad09820800000000000000
+      internalID: 2923075975018163366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 1045
+        width: 244
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53dd10395cd7b6530800000000000000
+      internalID: 3849308594046623029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1047
+        width: 223
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3515bfbf665e9de20800000000000000
+      internalID: 3375981626167873875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 789
+        width: 202
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b32988ce55b5b50800000000000000
+      internalID: 6582949754724039532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 785
+        width: 202
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54b75dc8caea1b20800000000000000
+      internalID: 3106053041184814171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 782
+        width: 203
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf79f083856690e0800000000000000
+      internalID: -2263510147228139582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 788
+        width: 239
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7ba5cd40aa1b460800000000000000
+      internalID: 7255767412524103586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 778
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceff89a152283b7e0800000000000000
+      internalID: -1750912734245355540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 518
+        width: 228
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9f5e1dedcacb3d0800000000000000
+      internalID: -3189484363080926796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 515
+        width: 224
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba27a827c6599020800000000000000
+      internalID: 2349004094030949040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 523
+        width: 213
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d81fefec06b5ec50800000000000000
+      internalID: 6693956587837397207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 529
+        width: 219
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607a2f7a938c9d420800000000000000
+      internalID: 2655373605268006662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 526
+        width: 227
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb84464e0e5f3770800000000000000
+      internalID: 8592690029447646204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 267
+        width: 211
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e98837596ec6f10800000000000000
+      internalID: 2264438242223365673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 270
+        width: 196
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91da1f79b98aa3620800000000000000
+      internalID: 2754699508313074969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 267
+        width: 201
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0831bd5db6e1718b0800000000000000
+      internalID: -5181639397768227968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 268
+        width: 205
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3db5ab16e5463f90800000000000000
+      internalID: -6974310118327993029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 276
+        width: 202
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1913ecf8f3ba030800000000000000
+      internalID: 3506966621710291376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gnomer spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 17
+        width: 199
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24beb874f604ceb90800000000000000
+      internalID: -7211318056641107134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Gnomer spritesheet_0: -3787170625321208815
+      Gnomer spritesheet_1: 3032116325340892056
+      Gnomer spritesheet_10: -3189484363080926796
+      Gnomer spritesheet_11: 2349004094030949040
+      Gnomer spritesheet_12: 6693956587837397207
+      Gnomer spritesheet_13: 2655373605268006662
+      Gnomer spritesheet_14: 8592690029447646204
+      Gnomer spritesheet_15: 2264438242223365673
+      Gnomer spritesheet_16: 2754699508313074969
+      Gnomer spritesheet_17: -5181639397768227968
+      Gnomer spritesheet_18: -6974310118327993029
+      Gnomer spritesheet_19: 3506966621710291376
+      Gnomer spritesheet_2: 2923075975018163366
+      Gnomer spritesheet_20: -7211318056641107134
+      Gnomer spritesheet_3: 3849308594046623029
+      Gnomer spritesheet_4: 3375981626167873875
+      Gnomer spritesheet_5: 6582949754724039532
+      Gnomer spritesheet_6: 3106053041184814171
+      Gnomer spritesheet_7: -2263510147228139582
+      Gnomer spritesheet_8: 7255767412524103586
+      Gnomer spritesheet_9: -1750912734245355540
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
