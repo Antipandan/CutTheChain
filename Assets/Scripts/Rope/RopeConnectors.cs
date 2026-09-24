@@ -12,7 +12,7 @@ public class RopeConnectors : MonoBehaviour
     [SerializeField] private DistanceJoint2D joint;
     private void Awake()
     {
-        CheckReferences(out _);
+        CheckReferences(out bool allgood);
     }
 
     private void CheckReferences(out bool allGood)
