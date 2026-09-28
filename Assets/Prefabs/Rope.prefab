@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b00f6cfec914ba183b17eb3582e0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rope
-  Resolution: 1
+  resolution: 1
+  anchor: {fileID: 0}
   connectedItem: {fileID: 0}
   connectorPrefab: {fileID: 402399669246486487, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
   lineRenderer: {fileID: 5961962064741779458}
@@ -74,7 +75,8 @@ LineRenderer:
   m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,8 +109,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.056972504
-        value: 1
+        time: 0.19384384
+        value: 0.106918335
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -120,8 +122,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.7176471, g: 0.427451, b: 0.19215688, a: 1}
+      key1: {r: 0.7176471, g: 0.427451, b: 0.19215688, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -137,7 +139,7 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 61680
       atime2: 0
       atime3: 0
       atime4: 0
@@ -145,7 +147,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0

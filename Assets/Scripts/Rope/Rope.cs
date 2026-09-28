@@ -113,9 +113,17 @@ public sealed class Rope : MonoBehaviour
     private void ConnectLastItemProperly()
     {
         if (connectedItem == null) return;
-        connectedItem.Joint.connectedBody = ropeSegments[^1].JointRigidBody;
-        if (ropeSegments.Count > 0) connectedItem.Joint.distance = CalculateFractionalLength() * ropeLength;
-        else connectedItem.Joint.distance = ropeLength;
+        
+        if (ropeSegments.Count > 0)
+        {
+            connectedItem.Joint.connectedBody = ropeSegments[^1].JointRigidBody;
+            connectedItem.Joint.distance = CalculateFractionalLength() * ropeLength;
+        }
+        else
+        {
+            connectedItem.Joint.connectedBody = anchor;
+            connectedItem.Joint.distance = ropeLength;
+        }
         
         connectedItem.ChangeJointStatus(true);
     }
