@@ -15,6 +15,7 @@ public sealed class Rope : MonoBehaviour
     [SerializeField] private RopeConnectors connectorPrefab;
     [SerializeField] private LineRenderer lineRenderer;
     private List<RopeConnectors> ropeSegments = new List<RopeConnectors>();
+    private List<Rigidbody2D> segments = new List<Rigidbody2D>();
     private Vector2 ropeVector = Vector2.down;
     private float ropeLength = 1f;
 
@@ -29,9 +30,17 @@ public sealed class Rope : MonoBehaviour
 
     private void Start()
     {
+        InitializeFillSegments();
         CalculateRopeVector();
         SpawnJoints();
         ConnectAllJoints();
+    }
+
+    
+    private void InitializeFillSegments()
+    {
+        segments = new List<Rigidbody2D>(){anchor};
+        if (connectedItem != null) segments.Add(connectedItem.JointRigidBody);
     }
     
     private void CheckReferences()
@@ -43,7 +52,15 @@ public sealed class Rope : MonoBehaviour
 
     private void Update()
     {
-        return;
+        UpdateLine();
+    }
+
+    private void UpdateLine()
+    {
+        for (int i = 0; i < segments.Count; i++)
+        {
+            lineRenderer.SetPosition(i, segments[i].transform.position);
+        }
     }
 
     private void CalculateRopeVector()
@@ -56,7 +73,7 @@ public sealed class Rope : MonoBehaviour
     {
         for (int i = 0; i < resolution; i++)
         {
-            float fraction = (1f + i) / (float)(resolution + 1f);
+            float fraction = CalculateFractionalLength(i);
             Vector3 fractional = (ropeVector * fraction);
             if (anchor != null)
             {
@@ -65,8 +82,22 @@ public sealed class Rope : MonoBehaviour
                     .GetComponent<RopeConnectors>();
                 lineRenderer.positionCount++;
                 ropeSegments.Add(connector);
+                AddSegmentProperly(connector.JointRigidBody);
             }
         }
+    }
+
+    private void AddSegmentProperly(Rigidbody2D ropeSegment)
+    {
+        List<Rigidbody2D> newRopeSegment = new List<Rigidbody2D>(segments.Count + 1);
+        newRopeSegment.Add(anchor);
+        for (int i = 1; i < segments.Count - 1; i++)
+        {
+            newRopeSegment.Add(segments[i]);
+        }
+        newRopeSegment.Add(ropeSegment);
+        if (connectedItem != null) newRopeSegment.Add(connectedItem.JointRigidBody);
+        segments = newRopeSegment;
     }
 
     private void ConnectAllJoints()
@@ -76,18 +107,22 @@ public sealed class Rope : MonoBehaviour
             ConfigureJoint(ropeSegments[i]);
         }
         if (connectedItem == null) return;
-        if (ropeSegments.Count < 0)
-        {
-            connectedItem.Joint.connectedBody = ropeSegments[^1].JointRigidBody;
-            connectedItem.Joint.distance = (1 / 2f) * ropeLength;
-        }
-        else
-        {
-            connectedItem.Joint.connectedBody = anchor;
-            connectedItem.Joint.distance = ropeLength;
-        }
-        connectedItem.ChangeJointStatus(true);
+        ConnectLastItemProperly();
+    }
 
+    private void ConnectLastItemProperly()
+    {
+        if (connectedItem == null) return;
+        connectedItem.Joint.connectedBody = ropeSegments[^1].JointRigidBody;
+        if (ropeSegments.Count > 0) connectedItem.Joint.distance = CalculateFractionalLength() * ropeLength;
+        else connectedItem.Joint.distance = ropeLength;
+        
+        connectedItem.ChangeJointStatus(true);
+    }
+
+    private float CalculateFractionalLength(int nominatorOffset = 0)
+    {
+        return (1 + nominatorOffset) / ((float)(resolution) + 1);
     }
     
     [CanBeNull]
@@ -96,13 +131,14 @@ public sealed class Rope : MonoBehaviour
         int index = ropeSegments.IndexOf(child) - 1;
         if (index == -1) return anchor;
         if (index >= ropeSegments.Count) return connectedItem!.JointRigidBody;
-        Debug.Log($"index: {index}");
         return ropeSegments[index].JointRigidBody;
     }
 
     private void ConfigureJoint(RopeConnectors connector)
     {
+        // Debug.Log($"connector: {connector.gameObject.name}");
         Rigidbody2D parentObject = GetParentPoint(connector);
+        // Debug.Log($"parent: {parentObject.gameObject.name}");
         if (parentObject == null) return;
         ConfigureJointLenght(connector.Joint, parentObject);
         ConfigureJointParent(connector.Joint, parentObject);
@@ -111,7 +147,7 @@ public sealed class Rope : MonoBehaviour
     
     private void ConfigureJointLenght(DistanceJoint2D joint, Rigidbody2D parent)
     {
-        float distance = (1 / ((float)resolution + 1f)) * ropeLength;
+        float distance = CalculateFractionalLength() * ropeLength;
         
         joint.distance = distance;
         joint.autoConfigureConnectedAnchor = false;

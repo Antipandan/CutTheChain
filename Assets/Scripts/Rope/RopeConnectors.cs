@@ -56,7 +56,6 @@ public class RopeConnectors : MonoBehaviour
     /// </summary>
     public void ChangeJointStatus(bool status = true)
     {
-        Debug.Log($"active!");
         joint.enabled = status;
     }
 

@@ -739,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3910673201364751776, guid: 845c54da76fecb144a31f470f74dc780, type: 3}
       propertyPath: resolution
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3910673201364751776, guid: 845c54da76fecb144a31f470f74dc780, type: 3}
       propertyPath: connectedItem
