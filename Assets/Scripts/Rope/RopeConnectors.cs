@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using JetBrains.Annotations;
 using Utility;
 [RequireComponent(typeof(Rigidbody2D))]
 public class RopeConnectors : MonoBehaviour
@@ -10,6 +11,25 @@ public class RopeConnectors : MonoBehaviour
     [SerializeField] private Collider2D jointCollider;
     [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
     [SerializeField] private DistanceJoint2D joint;
+
+    [CanBeNull]
+    public DistanceJoint2D Joint
+    {
+        get => joint;
+    }
+
+    [CanBeNull]
+    public Rigidbody2D JointRigidBody
+    {
+        get => jointRigidBody;
+    }
+
+    [CanBeNull]
+    public Collider2D JointCollider2D
+    {
+        get => jointCollider;
+    }
+
     private void Awake()
     {
         CheckReferences(out bool allgood);

@@ -65,16 +65,62 @@ public sealed class Rope : MonoBehaviour
         if (Resolution < 1) return; 
         for (int i = 0; i < Resolution; i++)
         {
-            float fractionalPlacement = (i + 1) / (float)Resolution + 1f;
+            float fractionalPlacement = (i + 1) / (Resolution + 1f);
             RopeConnectors joint = Instantiate(connectorPrefab, length * (ropeVector * fractionalPlacement),
                 Quaternion.identity).GetComponent<RopeConnectors>();
-            if (joint != null)
-            {
-                joints.Add(joint);
-                InsertBody(joint.GetComponent<Rigidbody2D>());
-                // lineRenderer.positionCount++;
-            }
+            if (joint == null) continue;
+            lineRenderer.positionCount++;
+            joints.Add(joint);
+            InsertBody(joint.GetComponent<Rigidbody2D>());
+            ConfigureJoint(joint);
         }
+    }
+
+    [CanBeNull]
+    private Rigidbody2D GetParentPoint(RopeConnectors child)
+    {
+        int index = bodies.IndexOf(child.GetComponent<Rigidbody2D>());
+        if (index <= 0 || index >= bodies.Count - 1) return null;
+        Debug.Log($"parent point: {bodies[index].name}");
+        return bodies[index];
+    }
+
+    private void ConfigureJoint(RopeConnectors connector)
+    {
+        DistanceJoint2D joint = connector.Joint;
+        if (joint == null) return;
+        if (!joints.Contains(connector)) return;
+        Rigidbody2D parent = GetParentPoint(connector);
+        Debug.Log($"child: {gameObject.name}, parent: {parent.gameObject.name}");
+        if (parent == null)
+        {
+            Debug.Log($"parent was null");
+            return;
+        }
+        ConfigureJointLenght(connector, joint, parent);
+        ConfigureJointParent(connector, joint, parent);
+
+    }
+
+    private void ConfigureJointLenght(RopeConnectors connector, DistanceJoint2D joint, Rigidbody2D parent = null)
+    {
+        Debug.Log($"configure length");
+        Rigidbody2D lastItem = parent == null ? GetParentPoint(connector) : parent;
+        if (lastItem == null) return;
+        int currentIndex = joints.IndexOf(connector);
+        Vector3 lastItemPosition = lastItem.transform.position; 
+        Vector3 currentItemPosition = joints[currentIndex].transform.position;
+        joint.distance = (lastItemPosition - currentItemPosition).magnitude;
+        joint.autoConfigureDistance = false;
+    }
+
+    private void ConfigureJointParent(RopeConnectors connector, DistanceJoint2D joint, Rigidbody2D parent = null)
+    {
+        Debug.Log($"configure parent");
+        Rigidbody2D lastItem = parent == null ? GetParentPoint(connector) : parent;
+        if (lastItem == null) return;
+        joint.connectedBody = lastItem.GetComponent<Rigidbody2D>();
+        
     }
 
     private void PrepopulateBodies()
@@ -102,12 +148,21 @@ public sealed class Rope : MonoBehaviour
 
     private void InsertBody(Rigidbody2D body)
     {
-        bodies = new List<Rigidbody2D>(bodies.Count + 2);
+        bodies = new List<Rigidbody2D>(bodies.Count);
         bodies.Add(anchor);
         bodies.Add(body);
         bodies.Add(connectedItem);
+        // UpdateLineRendererOrder();
     }
 
+    private void UpdateLineRendererOrder()
+    {
+        for (int i = 0; i < bodies.Count; i++)
+        {
+            Debug.Log($"joints: {bodies[i].name} at: {i}");
+            lineRenderer.SetPosition(i, bodies[i].transform.position);
+        }
+    }
     private void ConfigureRopeConnectors()
     {
         for (int i = 0; i < joints.Count; i++)
@@ -122,10 +177,9 @@ public sealed class Rope : MonoBehaviour
     private void CalculateJointPlacement()
     {
         if (lineRenderer == null) return;
-        // CalculateJointPlacement();
         if (anchor != null) lineRenderer.SetPosition(0, anchor.gameObject.transform.position);
         if (connectedItem != null) lineRenderer.SetPosition(lineRenderer.positionCount - 1, connectedItem.gameObject.transform.position);
-        
+        CalculateExtraJointPlacements();
     }
 
     private void CalculateExtraJointPlacements()
