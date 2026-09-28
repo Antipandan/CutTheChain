@@ -545,15 +545,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1139345244961642391, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
       propertyPath: m_Name
-      value: RopeConnector
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 2994613842547837646, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2311099
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 2994613842547837646, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5835276
+      value: -2.66
       objectReference: {fileID: 0}
     - target: {fileID: 2994613842547837646, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -588,9 +588,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8589863645542536805, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
+      propertyPath: m_Distance
+      value: 2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589863645542536805, guid: 66141d9448971a34797e85ff9601f7a3, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
-      objectReference: {fileID: 1674931551}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -733,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 1674931551}
     - target: {fileID: 3910673201364751776, guid: 845c54da76fecb144a31f470f74dc780, type: 3}
       propertyPath: Resolution
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3910673201364751776, guid: 845c54da76fecb144a31f470f74dc780, type: 3}
       propertyPath: connectedItem
