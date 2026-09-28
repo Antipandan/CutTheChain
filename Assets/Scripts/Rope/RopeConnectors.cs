@@ -2,7 +2,7 @@
 using System;
 using JetBrains.Annotations;
 using Utility;
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(DistanceJoint2D))]
 public class RopeConnectors : MonoBehaviour
 {
     [Tooltip("Reference should be filled. This component should exist on gameObject!")]
@@ -12,13 +12,13 @@ public class RopeConnectors : MonoBehaviour
     [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
     [SerializeField] private DistanceJoint2D joint;
 
-    [CanBeNull]
+    [NotNull]
     public DistanceJoint2D Joint
     {
         get => joint;
     }
 
-    [CanBeNull]
+    [NotNull]
     public Rigidbody2D JointRigidBody
     {
         get => jointRigidBody;
@@ -56,7 +56,8 @@ public class RopeConnectors : MonoBehaviour
     /// </summary>
     public void ChangeJointStatus(bool status = true)
     {
-        joint.gameObject.SetActive(status);
+        Debug.Log($"active!");
+        joint.enabled = status;
     }
 
 }
