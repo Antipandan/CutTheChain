@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2403641015380025323}
   - component: {fileID: 7944594463631127701}
+  - component: {fileID: 7151210593907929071}
   - component: {fileID: 8355085690105812473}
   - component: {fileID: 7703459334770183847}
+  - component: {fileID: 5700063473480079669}
   m_Layer: 6
   m_Name: Cherry
   m_TagString: Untagged
@@ -93,6 +95,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7151210593907929071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520044968012795099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0385a3d5226840d19c9ff2b822c9022a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Candy
+  rigidBody2D: {fileID: 8355085690105812473}
+  circleCollider: {fileID: 7703459334770183847}
+  joint: {fileID: 5700063473480079669}
 --- !u!50 &8355085690105812473
 Rigidbody2D:
   serializedVersion: 5
@@ -155,4 +172,30 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.03, y: -0.1316132}
-  m_Radius: 0.21838677
+  m_Radius: 0.25
+--- !u!233 &5700063473480079669
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520044968012795099}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0.2314471, y: 0.25551963}
+  m_ConnectedAnchor: {x: 0.10468269, y: -1.5628825}
+  m_UseConnectedAnchor: 1
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359

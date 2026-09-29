@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6382355160347428897}
   - component: {fileID: 6519672169862384175}
+  - component: {fileID: 7984448403649611090}
   - component: {fileID: 8433887511955459137}
   - component: {fileID: 7492809881319740545}
+  - component: {fileID: 3383066301519391884}
   m_Layer: 0
   m_Name: ChainPart2_0
   m_TagString: Untagged
@@ -93,6 +95,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7984448403649611090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787151380472916928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05cb2b87a95468a8db614f4e81bd595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RopeConnectors
+  jointRigidBody: {fileID: 8433887511955459137}
+  jointCollider: {fileID: 3383066301519391884}
+  joint: {fileID: 7492809881319740545}
+  spriteRenderer: {fileID: 6519672169862384175}
 --- !u!50 &8433887511955459137
 Rigidbody2D:
   serializedVersion: 5
@@ -134,9 +152,9 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 1.39}
-  m_ConnectedAnchor: {x: 0, y: 0.41700003}
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 1.41}
+  m_ConnectedAnchor: {x: 0, y: -4.25}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -146,3 +164,40 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!70 &3383066301519391884
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787151380472916928}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.29, y: 2.82}
+  m_Direction: 0

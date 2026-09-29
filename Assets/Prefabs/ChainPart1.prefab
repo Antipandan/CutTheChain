@@ -110,6 +110,7 @@ MonoBehaviour:
   jointRigidBody: {fileID: 1492863464154557838}
   jointCollider: {fileID: 6710535757340154542}
   joint: {fileID: 3416030306971934432}
+  spriteRenderer: {fileID: 7345001776103498705}
 --- !u!50 &1492863464154557838
 Rigidbody2D:
   serializedVersion: 5
@@ -151,9 +152,9 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 1.44}
-  m_ConnectedAnchor: {x: 0, y: 0.43200004}
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 1.43}
+  m_ConnectedAnchor: {x: 0, y: -0.8640001}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

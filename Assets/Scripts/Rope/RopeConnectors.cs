@@ -11,6 +11,8 @@ public class RopeConnectors : MonoBehaviour
     [SerializeField] private Collider2D jointCollider;
     [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
     [SerializeField] private HingeJoint2D joint;
+    [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     [NotNull]
     public HingeJoint2D Joint
@@ -28,6 +30,21 @@ public class RopeConnectors : MonoBehaviour
     public Collider2D JointCollider2D
     {
         get => jointCollider;
+    }
+
+    public Bounds SpriteBounds
+    {
+        get => spriteRenderer.bounds;
+    }
+
+    public float SpriteLength
+    {
+        get => spriteRenderer.sprite.bounds.size.x;
+    }
+
+    public float SpriteWidth
+    {
+        get => spriteRenderer.sprite.bounds.size.y;
     }
 
     private void Awake()
