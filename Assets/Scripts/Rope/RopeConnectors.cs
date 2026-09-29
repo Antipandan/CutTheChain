@@ -2,7 +2,7 @@
 using System;
 using JetBrains.Annotations;
 using Utility;
-[RequireComponent(typeof(Rigidbody2D), typeof(DistanceJoint2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(HingeJoint2D))]
 public class RopeConnectors : MonoBehaviour
 {
     [Tooltip("Reference should be filled. This component should exist on gameObject!")]
@@ -10,10 +10,10 @@ public class RopeConnectors : MonoBehaviour
     [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
     [SerializeField] private Collider2D jointCollider;
     [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
-    [SerializeField] private DistanceJoint2D joint;
+    [SerializeField] private HingeJoint2D joint;
 
     [NotNull]
-    public DistanceJoint2D Joint
+    public HingeJoint2D Joint
     {
         get => joint;
     }
@@ -41,14 +41,6 @@ public class RopeConnectors : MonoBehaviour
         ReferenceValidator.CheckComponentForNull(ref jointCollider, gameObject, out bool value1, nameof(jointCollider), ErrorSeverity.FatalError);
         ReferenceValidator.CheckComponentForNull(ref joint, gameObject, out bool value2, nameof(joint), ErrorSeverity.FatalError);
         allGood = value1 && value && value2;
-    }
-
-    public void ConfigureJoint(float distance)
-    {
-        if (joint == null) return;
-        joint.autoConfigureDistance = false;
-        joint.enableCollision = true;
-        joint.distance = distance;
     }
 
     /// <summary>
