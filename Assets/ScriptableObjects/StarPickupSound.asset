@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a636350fd82a4e32a8e1918930cba620, type: 3}
+  m_Name: StarPickupSound
+  m_EditorClassIdentifier: Assembly-CSharp::StarPickupSound
+  starPickupSounds:
+  - {fileID: 8300000, guid: 935aa1b1c000341428f6ef927f928e46, type: 3}
