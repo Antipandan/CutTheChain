@@ -5,7 +5,7 @@ using Utility;
 
 public sealed class Star : MonoBehaviour
 {
-    [SerializeField] private StarPickupSound StarPickupSounds;
+    [SerializeField] private RandomSounds randomSoundses;
     [SerializeField] public UnityEvent onStarCollectedEvent;
     public static Action onCollectedStar;
     private static event Action<Star> onStarCollected;
@@ -49,17 +49,18 @@ public sealed class Star : MonoBehaviour
 
     private void Setup()
     {
-        if (StarPickupSounds == null) Logging.LogNullReferenceError(nameof(StarPickupSounds), ErrorSeverity.Warning, gameObject);
+        if (randomSoundses == null) Logging.LogNullReferenceError(nameof(randomSoundses), ErrorSeverity.Warning, gameObject);
     }
 
     private void CollectStar(Star star)
     {
         PublishOnStarCollectedEvent();
-        AudioClip clip = StarPickupSounds == null ? null : StarPickupSounds.GetRandomSound();
+        AudioClip clip = randomSoundses == null ? null : randomSoundses.GetRandomSound();
         if (clip != null)
         {
             SoundPlayer player = SoundPlayerManager.RequestSoundPlayer(clip);
             // This will with a high likelihood not be null since clip is not null.
+            Debug.Log($"play sound!");
             player!.PlaySound();
         }
         Destroy(star.gameObject);

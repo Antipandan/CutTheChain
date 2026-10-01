@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a636350fd82a4e32a8e1918930cba620, type: 3}
-  m_Name: StarPickupSound
-  m_EditorClassIdentifier: Assembly-CSharp::StarPickupSound
+  m_Name: CherryThuds
+  m_EditorClassIdentifier: Assembly-CSharp::RandomSounds
   sounds:
-  - {fileID: 8300000, guid: 935aa1b1c000341428f6ef927f928e46, type: 3}
+  - {fileID: 8300000, guid: 268928fe38360d34a82c05d9f2f1fe57, type: 3}
