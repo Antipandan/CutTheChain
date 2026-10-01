@@ -31,6 +31,7 @@ public class SoundPlayer : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
+            audioSource.playOnAwake = false;
         }
     }
 
@@ -43,7 +44,6 @@ public class SoundPlayer : MonoBehaviour
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public void PlaySound()
     {
-        Debug.Log($"play sound!");
         audioSource.Play();
         StartCoroutine(Destroy());
     }

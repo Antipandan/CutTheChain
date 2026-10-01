@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StarPickupSound
   m_EditorClassIdentifier: Assembly-CSharp::StarPickupSound
   starPickupSounds:
-  - {fileID: 8300000, guid: 935aa1b1c000341428f6ef927f928e46, type: 3}
+  - {fileID: 8300000, guid: 74ccaa5a7516fa744aff06e282a5c697, type: 3}

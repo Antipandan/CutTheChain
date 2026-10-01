@@ -9,12 +9,11 @@ using Object = UnityEngine.Object;
 public static class SoundPlayerManager
 {
     [CanBeNull]
-    public static SoundPlayer RequestSoundPlayer([CanBeNull] AudioClip clip, float volume = 0f)
+    public static SoundPlayer RequestSoundPlayer([CanBeNull] AudioClip clip, float volume = 1f, float pitch = 1f)
     {
-        Debug.Log($"requesting sound player!");
         if (clip == null) return null;
         SoundPlayer player = ConstructSoundPlayer(out AudioSource source);
-        ConfigureAudioSource(source, clip, volume);
+        ConfigureAudioSource(source, clip, volume, pitch);
         ConfigureSoundPlayer(player);
         return player;
     }
@@ -40,7 +39,7 @@ public static class SoundPlayerManager
         soundPlayer.Duration = customDuration;
     }
 
-    private static void ConfigureAudioSource(AudioSource audioSource, AudioClip clip, float volume = 0f, float pitch = 0f)
+    private static void ConfigureAudioSource(AudioSource audioSource, AudioClip clip, float volume = 1f, float pitch = 1f)
     {
         audioSource.clip = clip;
         audioSource.volume = EnsureVolumeCorrect(volume);
