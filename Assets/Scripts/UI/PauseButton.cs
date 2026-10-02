@@ -8,6 +8,7 @@ public class PauseButton : MonoBehaviour
 {
     [SerializeField] private Button pauseButton;
     [SerializeField] private Image pauseButtonImage;
+    [Tooltip("Reference can be left null. If null image wont change when button pressed!")]
     [SerializeField] private PauseImages images;
 
     private void Awake()
@@ -25,7 +26,7 @@ public class PauseButton : MonoBehaviour
     {
         ReferenceValidator.CheckComponentForNull(ref pauseButton, gameObject, nameof(pauseButton));
         ReferenceValidator.CheckComponentForNull(ref pauseButtonImage, gameObject, nameof(pauseButtonImage));
-        ReferenceValidator.CheckUnityObjectForNull(ref images, nameof(images), ErrorSeverity.Warning);
+        ReferenceValidator.CheckUnityObjectForNull(ref images, nameof(images), ErrorSeverity.None);
     }
 
     private void SubscribeButtonEvents()

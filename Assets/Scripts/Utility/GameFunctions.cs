@@ -22,12 +22,14 @@ namespace Utility
 
         public static void PauseGame()
         {
+            Debug.Log($"game pause!");
             GameEvents.Instance.PublishOnGamePaused();
             Time.timeScale = 0f;
         }
 
         public static void ResumeGame()
         {
+            Debug.Log($"game resume!");
             GameEvents.Instance.PublishOnGameResumed();
             Time.timeScale = 1f;
         }
