@@ -21,4 +21,5 @@ public sealed class RandomSounds : ScriptableObject
         if (sounds.Length == 1) return sounds[0];
         return sounds[rand.Next(sounds.Length)];
     }
+    
 }

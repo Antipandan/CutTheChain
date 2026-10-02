@@ -15,6 +15,11 @@ public sealed class Star : MonoBehaviour
         get => onStarCollected == null ? 0 : onStarCollected.GetInvocationList().Length;
     }
 
+    public static void testFunction()
+    {
+        
+    }
+
     public static int NrCollectedStar
     {
         get => onCollectedStar == null ? 0 : onCollectedStar.GetInvocationList().Length;
@@ -60,7 +65,6 @@ public sealed class Star : MonoBehaviour
         {
             SoundPlayer player = SoundPlayerManager.RequestSoundPlayer(clip);
             // This will with a high likelihood not be null since clip is not null.
-            Debug.Log($"play sound!");
             player!.PlaySound();
         }
         Destroy(star.gameObject);
