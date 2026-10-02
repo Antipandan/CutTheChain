@@ -32,7 +32,7 @@ namespace Utility
             Time.timeScale = 1f;
         }
     
-        public static void ChangeTimeScale(float timeScale)
+        public static void ChangeTimeScaleManually(float timeScale)
         {
             Time.timeScale = timeScale;
         }
@@ -40,10 +40,11 @@ namespace Utility
         /// <summary>
         /// Switches between Time.timeScale 1f and 0f
         /// </summary>
-        public static void ChangeTimeScale()
+        public static void SwitchPauseResume()
         {
             bool result = Time.timeScale > 0f ^ true;
-            Time.timeScale = result ? 0f : 1f;
+            if (result) ResumeGame();
+            else PauseGame();
         }
 
         public static void ReloadScene()

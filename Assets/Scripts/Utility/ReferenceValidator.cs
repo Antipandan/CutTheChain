@@ -52,14 +52,14 @@ namespace Utility
             if (preventPlay) EditorApplication.isPlaying = false;
         }
 
-        public static void CheckGameObjectForNull<TComponent>(ref TComponent component,
+        public static void CheckUnityObjectForNull<TComponent>(ref TComponent component,
             ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Object
         {
             if (component == null) Logging.LogNullReferenceError(nameof(component), severity);
             if (preventPlay) EditorApplication.isPlaying = false;
         }
 
-        public static void CheckGameObjectForNull<TComponent>(ref TComponent component, string componentName,
+        public static void CheckUnityObjectForNull<TComponent>(ref TComponent component, string componentName,
             ErrorSeverity severity = ErrorSeverity.Error, bool preventPlay = false) where TComponent : Object
         {
             if (component == null) Logging.LogNullReferenceError(componentName, severity);
