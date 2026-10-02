@@ -30,18 +30,37 @@ public class PauseMenu : MonoBehaviour
         ReferenceValidator.CheckComponentForNull(ref restartButton, gameObject, nameof(restartButton));
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SubscribeEvents();
+    }
+    
+    private void Start()
+    {
         gameObject.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        UnSubscribeEvents();
+    }
+    
     private void SubscribeEvents()
     {
+        // this is apparently safe and good to do in c#? https://stackoverflow.com/questions/367523/how-to-ensure-an-event-is-only-subscribed-to-once
+        // check comment for further discussion
+        GameEvents.Instance.onGamePaused -= OnPause;
         GameEvents.Instance.onGamePaused += OnPause;
+        GameEvents.Instance.onGameResumed -= OnResume;
         GameEvents.Instance.onGameResumed += OnResume;
     }
 
+    private void UnSubscribeEvents()
+    {
+        GameEvents.Instance.onGamePaused -= OnPause;
+        GameEvents.Instance.onGameResumed -= OnResume;
+    }
+    
     private void OnPause()
     {
         gameObject.SetActive(true);

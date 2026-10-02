@@ -26,6 +26,23 @@ public class RestartButton : MonoBehaviour
 
     private void SubscribeButtonEvents()
     {
-       restartButton.onClick.AddListener(GameFunctions.ReloadScene);
+        restartButton.onClick.RemoveListener(Reload);
+        restartButton.onClick.AddListener(Reload);
+    }
+
+    private static void Reload()
+    {
+        GameFunctions.ReloadScene();
+        GameFunctions.ResumeGame();
+    }
+    
+    private void UnSubscribeButtonEvents()
+    {
+        restartButton.onClick.RemoveListener(Reload);
+    }
+
+    private void OnDestroy()
+    {
+        UnSubscribeButtonEvents();
     }
 }

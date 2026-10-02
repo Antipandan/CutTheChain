@@ -23,6 +23,4 @@ public class Anchor : MonoBehaviour
         rigidBody2D.gravityScale = 0f;
         rigidBody2D.constraints = RigidbodyConstraints2D.FreezePosition;
     }
-    
-    
 }

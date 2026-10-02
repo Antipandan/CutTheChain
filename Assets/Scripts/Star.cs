@@ -15,11 +15,6 @@ public sealed class Star : MonoBehaviour
         get => onStarCollected == null ? 0 : onStarCollected.GetInvocationList().Length;
     }
 
-    public static void testFunction()
-    {
-        
-    }
-
     public static int NrCollectedStar
     {
         get => onCollectedStar == null ? 0 : onCollectedStar.GetInvocationList().Length;
@@ -35,7 +30,6 @@ public sealed class Star : MonoBehaviour
         SubscribeEvents();   
         Setup();
     }
-    
 
     private void OnEnable()
     {

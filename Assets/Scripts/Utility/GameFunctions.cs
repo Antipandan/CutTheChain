@@ -9,6 +9,17 @@ namespace Utility
     {
         private static GameFunctions instance;
 
+        public static GameFunctions Instance
+        {
+            get
+            {
+                if (instance == null) Logging.LogRegularStringMessage(
+                    "GameFunctions was not attached" + " to a GameObject This component" +
+                    " should be attached to a GameObject", ErrorSeverity.Error);
+                return instance;
+            }
+        }
+
         private void Awake()
         {
             CheckSingleton();
@@ -16,20 +27,23 @@ namespace Utility
 
         private void CheckSingleton()
         {
-            if (instance == null) instance = this;
+            if (instance == null || instance == this) instance = this;
             else Destroy(this);
+        }
+
+        private void OnEnable()
+        {
+            CheckSingleton();
         }
 
         public static void PauseGame()
         {
-            Debug.Log($"game pause!");
             GameEvents.Instance.PublishOnGamePaused();
             Time.timeScale = 0f;
         }
 
         public static void ResumeGame()
         {
-            Debug.Log($"game resume!");
             GameEvents.Instance.PublishOnGameResumed();
             Time.timeScale = 1f;
         }

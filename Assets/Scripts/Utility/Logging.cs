@@ -138,6 +138,11 @@ namespace Utility
         }
         
 
+        public static void LogRegularStringMessage(string message, ErrorSeverity severity = ErrorSeverity.None, Object parentObject = null)
+        {
+            LogStandardStringMessageSwitch(message, severity, parentObject);
+        }
+
         #endregion
 
         #region Private Functions
@@ -367,6 +372,36 @@ namespace Utility
         {
             StandardSwitch(severity, errorObjectName, subject, parentObject);
             extraLoggingFunction?.Invoke();
+        }
+
+        /// <summary>
+        /// Handles output for a standardized logging format. To be used when user wants
+        /// to display information in the Unity terminal in a standardized manner
+        /// </summary>
+        /// <param name="message">Message to be output alongside other formating</param>
+        /// <param name="severity">How severe is the message the user wants to convey</param>
+        /// <param name="parentObject">Where does this message come from? E.g. what GameObject. Can be left null</param>
+        private static void LogStandardStringMessageSwitch(string message, ErrorSeverity severity = ErrorSeverity.None,
+            Object parentObject = null)
+        {
+            switch (severity)
+            {
+                case ErrorSeverity.None:
+                    Debug.Log($"{message}");
+                    break;
+                case ErrorSeverity.Warning:
+                    Debug.Log($"Warning {message}");
+                    break;
+                case ErrorSeverity.Error:
+                    Debug.LogError($"***Error! {message}***");
+                    break;
+                case ErrorSeverity.ScenePivotal:
+                    Debug.LogError($"**** Pivotal Error! {message} ****");
+                    break;
+                case ErrorSeverity.FatalError:
+                    Debug.LogError($"***** FATAL ERROR! {message} This *****");
+                    break;
+            }
         }
 
         #endregion

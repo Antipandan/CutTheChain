@@ -28,5 +28,4 @@ public sealed class Gnomer : MonoBehaviour
         
     }
     
-    
 }
