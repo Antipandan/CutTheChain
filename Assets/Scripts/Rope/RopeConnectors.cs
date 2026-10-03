@@ -13,6 +13,8 @@ public class RopeConnectors : MonoBehaviour
     [SerializeField] private HingeJoint2D joint;
     [Tooltip("Reference should be filled. This component should exist on gameObject!")] 
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [Tooltip("Audio to be played when cut")]
+    [SerializeField] private AudioClip cutSound;
 
     [NotNull]
     public HingeJoint2D Joint
@@ -45,6 +47,12 @@ public class RopeConnectors : MonoBehaviour
     public float SpriteWidth
     {
         get => spriteRenderer.sprite.bounds.size.y;
+    }
+
+    [CanBeNull]
+    public AudioClip CutSound
+    {
+        get => cutSound;
     }
 
     private void Awake()
