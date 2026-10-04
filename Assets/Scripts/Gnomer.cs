@@ -97,7 +97,7 @@ public sealed class Gnomer : MonoBehaviour
     private void OnFinishedConsumeCandy()
     {
         gnomerAnimationHandler.IsEatingCandy = false;
-        GameManager.Instance.PublishOnFruitEaten();
+        if (GameManager.Instance != null) GameManager.Instance?.PublishOnFruitEaten();
     }
     private void CheckReferences()
     {

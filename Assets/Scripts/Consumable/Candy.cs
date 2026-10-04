@@ -7,9 +7,9 @@ public class Candy : Attachable
 {
     [SerializeField] private AnchorPosition anchorPoint;
     [SerializeField] private RandomSounds sounds;
-    private static float fallSpeedMaxSound = 10f;
-    private static float maxVolumeMultiplier = 1.2f;
-    private static float minVolumeMultiplier = 0.12f;
+    private static float fallSpeedMaxSound = GameConstants.maxFallSpeedSound;
+    private static float minVolumeMultiplier = GameConstants.minVolumeImpactSoundMultiplier;
+    private static float maxVolumeMultiplier = GameConstants.maxVolumeImpactSoundMultiplier;
     private static Candy instance;
     
     public static Candy Instance
