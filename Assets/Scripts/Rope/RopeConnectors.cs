@@ -15,7 +15,7 @@ public class RopeConnectors : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Tooltip("Audio to be played when cut")]
     [SerializeField] private AudioClip cutSound;
-
+    
     [NotNull]
     public HingeJoint2D Joint
     {

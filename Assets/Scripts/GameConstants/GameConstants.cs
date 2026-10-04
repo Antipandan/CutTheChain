@@ -2,7 +2,7 @@
 
 public static class GameConstants
 {
-    public const float maxLength = 2f;
-    public const float startingLength = 1.5f;
-    
+    public const int MainMenuSceneIndex = 0;
+    public const int FirstSceneIndex = 1;
+    public const int SecondSceneIndex = 2;
 }

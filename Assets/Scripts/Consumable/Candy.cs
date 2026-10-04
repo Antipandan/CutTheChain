@@ -20,6 +20,11 @@ public class Candy : Attachable
     private void Awake()
     {
         CheckReferences();
+        CheckSingleton();
+    }
+
+    private void CheckSingleton()
+    {
         if (instance == null) instance = this;
         else Destroy(this);
     }

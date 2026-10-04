@@ -9,7 +9,6 @@ public sealed class Gnomer : MonoBehaviour
     [SerializeField] private FindCandy findCandy;
     [SerializeField] [Range(0f, 360f)] private float greetDelay = 15f;
     
-    
     #region Unity Lifecycle Methods
 
     private void Awake()
@@ -28,20 +27,11 @@ public sealed class Gnomer : MonoBehaviour
         UnSubscribeEvents();
     }
 
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.TryGetComponent(out Candy candy))
         {
-            // OnBeginConsumeCandy(candy);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.TryGetComponent(out Candy candy))
-        {
-            OnCandyDetected();
+            OnBeginConsumeCandy(candy);
         }
     }
 
@@ -102,6 +92,12 @@ public sealed class Gnomer : MonoBehaviour
         gnomerAnimationHandler.IsEatingCandy = true;
         gnomerAnimationHandler.IsCandyClose = false;
         Destroy(candy.gameObject);
+    }
+
+    private void OnFinishedConsumeCandy()
+    {
+        gnomerAnimationHandler.IsEatingCandy = false;
+        GameManager.Instance.PublishOnFruitEaten();
     }
     private void CheckReferences()
     {

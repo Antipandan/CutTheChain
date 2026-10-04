@@ -53,10 +53,13 @@ public class PauseMenu : MonoBehaviour
         GameEvents.Instance.onGamePaused += OnPause;
         GameEvents.Instance.onGameResumed -= OnResume;
         GameEvents.Instance.onGameResumed += OnResume;
+        GameManager.Instance.OnFruitEaten -= OnGameOver;
+        GameManager.Instance.OnFruitEaten += OnGameOver;
     }
 
     private void UnSubscribeEvents()
     {
+        GameManager.Instance.OnFruitEaten -= OnGameOver;
         GameEvents.Instance.onGamePaused -= OnPause;
         GameEvents.Instance.onGameResumed -= OnResume;
     }
@@ -67,6 +70,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void OnResume()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnGameOver()
     {
         gameObject.SetActive(false);
     }

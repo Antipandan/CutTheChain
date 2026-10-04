@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -88,6 +89,24 @@ namespace Utility
             {
                 SceneManager.LoadScene(sceneNumber);
             }
+        }
+
+        public static void LoadFirstScene()
+        {
+            
+        }
+
+        public static void LoadMainMenuScene()
+        {
+            LoadScene(GameConstants.MainMenuSceneIndex);
+        }
+
+        public static void ExitGame()
+        {
+            #if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+            #endif
+            Application.Quit();
         }
     }
 }
