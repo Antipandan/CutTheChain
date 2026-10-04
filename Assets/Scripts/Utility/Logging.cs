@@ -387,19 +387,19 @@ namespace Utility
             switch (severity)
             {
                 case ErrorSeverity.None:
-                    Debug.Log($"{message}");
+                    Debug.Log($"{message}", parentObject);
                     break;
                 case ErrorSeverity.Warning:
-                    Debug.Log($"Warning {message}");
+                    Debug.Log($"Warning {message}", parentObject);
                     break;
                 case ErrorSeverity.Error:
-                    Debug.LogError($"***Error! {message}***");
+                    Debug.LogError($"***Error! {message}***", parentObject);
                     break;
                 case ErrorSeverity.ScenePivotal:
-                    Debug.LogError($"**** Pivotal Error! {message} ****");
+                    Debug.LogError($"**** Pivotal Error! {message} ****", parentObject);
                     break;
                 case ErrorSeverity.FatalError:
-                    Debug.LogError($"***** FATAL ERROR! {message} This *****");
+                    Debug.LogError($"***** FATAL ERROR! {message} This *****", parentObject);
                     break;
             }
         }

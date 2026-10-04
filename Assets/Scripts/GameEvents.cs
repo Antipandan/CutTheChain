@@ -1,12 +1,17 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
 using UnityEngine;
 using Utility;
 using Logging = Utility.Logging;
+using Object = UnityEngine.Object;
 
 public sealed class GameEvents : MonoBehaviour
 {
     private static GameEvents instance;
+
+    public Action onStaticAwake;
     
     public Action onGamePaused;
 
@@ -19,7 +24,7 @@ public sealed class GameEvents : MonoBehaviour
         get
         {
             if (instance == null) Logging.LogRegularStringMessage(
-                $"it is vital that {nameof(GameEvents)} is attached to a GameObject", ErrorSeverity.Error);
+                $"it is vital that {nameof(GameEvents)} is attached to a GameObject", ErrorSeverity.ScenePivotal);
             return instance;
         }
     }
@@ -59,10 +64,53 @@ public sealed class GameEvents : MonoBehaviour
         Delegate[] delegates = onRestart.GetInvocationList();
         return onRestart != null && delegates.Length > 0 && delegates.Contains(function);
     }
+
+    private void SubscribeStaticEvents()
+    {
+        IStaticAwake[] staticAwakeInstances = FindAllStaticAwakes();
+        for (int i = 0; i < staticAwakeInstances.Length; i++)
+        {
+            IStaticAwake staticAwake = staticAwakeInstances[i];
+            onStaticAwake += staticAwake.StaticAwake;
+        }
+    }
+
+    public void PublishAllStaticEvents()
+    {
+        if (onStaticAwake == null)
+        {
+            Logging.LogRegularStringMessage($"event {nameof(onStaticAwake)} was null",  ErrorSeverity.Warning, gameObject);
+            return;
+        }
+        Delegate[] delegates = onStaticAwake.GetInvocationList();
+        if (delegates.Length <= 0)
+        {
+            Logging.LogRegularStringMessage("no delegates to publish", ErrorSeverity.Warning, gameObject);
+            return;
+        }
+        for (int i = 0; i < onStaticAwake!.GetInvocationList().Length; i++)
+        {
+            onStaticAwake?.Invoke();
+        }
+    }
+
+    private static IStaticAwake[] FindAllStaticAwakes()
+    {
+        List<IStaticAwake> results = new List<IStaticAwake>();
+        // this is kinda ugly but works
+        if (FindAnyObjectByType<MonoBehaviour>().gameObject.TryGetComponent<IStaticAwake>(out IStaticAwake staticAwake))
+        {
+            results.Add(staticAwake);
+        }
+        return results.ToArray();
+    }
     
     private void Awake()
     {
         CheckSingleton();
+        // bad usage of events replace with direct method calls!
+        SubscribeStaticEvents();
+        PublishAllStaticEvents();
     }
 
     private void OnEnable()
@@ -95,5 +143,10 @@ public sealed class GameEvents : MonoBehaviour
     public void PublishOnGameResumed()
     {
         onGameResumed?.Invoke();
+    }
+    
+    public void PublishOnStaticAwake()
+    {
+        onStaticAwake?.Invoke();
     }
 }

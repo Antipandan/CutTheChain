@@ -14,7 +14,6 @@ public class MouseCutter : MonoBehaviour
     {
         if (Mouse.current.leftButton.isPressed && other.gameObject.TryGetComponent(out RopeConnectors ropePart))
         {
-            Debug.Log($"cut?");
             CutChain(ropePart);
         }
     }
@@ -41,8 +40,18 @@ public class MouseCutter : MonoBehaviour
         if (ropePart == null) return;
         SoundPlayer player = SoundPlayerManager.RequestSoundPlayer(ropePart.CutSound);
         if (player != null) player.PlaySound();
-        Destroy(ropePart);
         ropePart.gameObject.SetActive(false);
+        Destroy(ropePart.gameObject);
+    }
+
+    private static void EnsureProperDestruction(RopeConnectors ropePart)
+    {
+        Rigidbody2D parentRigidbody = ropePart.JointRigidBody;
+        if (parentRigidbody.gameObject.TryGetComponent(out HingeJoint2D hinge))
+        {
+            hinge.connectedBody = null;
+            Destroy(ropePart.gameObject);
+        }
     }
     public static void ConstructMouseCutter()
     {

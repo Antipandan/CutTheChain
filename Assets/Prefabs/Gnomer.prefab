@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1981762794199773321}
   - component: {fileID: 6636398741989264432}
+  - component: {fileID: 5858654447551445668}
   - component: {fileID: 4221769249302563744}
   - component: {fileID: 4116225860010291587}
   - component: {fileID: 7372226297665202784}
   - component: {fileID: 5464200455699869965}
-  - component: {fileID: 4220088660938857183}
   m_Layer: 0
   m_Name: Gnomer
   m_TagString: Untagged
@@ -97,6 +97,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5858654447551445668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501712858305733004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d76ce26076447a89cee287aa7a3e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GnomerAnimationHandler
+  gnomerAnimator: {fileID: 4116225860010291587}
 --- !u!114 &4221769249302563744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,8 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63384c9539b43dd4187f2ed3b0ecb523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gnomer
-  gnomerAnimator: {fileID: 4116225860010291587}
-  findCandy: {fileID: 4220088660938857183}
+  gnomerAnimationHandler: {fileID: 5858654447551445668}
+  findCandy: {fileID: 6693494082051047749}
+  greetDelay: 15
 --- !u!95 &4116225860010291587
 Animator:
   serializedVersion: 7
@@ -159,7 +173,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!61 &5464200455699869965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,25 +220,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.01, y: 1.8906015}
   m_EdgeRadius: 0
---- !u!114 &4220088660938857183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501712858305733004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba654a9bf3f447f1b8c3d5a71ef918f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FindCandy
-  collider: {fileID: 1039239011487188154}
-  itemFound:
-    m_PersistentCalls:
-      m_Calls: []
-  itemLost:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6753842164829301193
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7186316209265389262}
   - component: {fileID: 1039239011487188154}
+  - component: {fileID: 6693494082051047749}
   m_Layer: 0
   m_Name: CandyZone
   m_TagString: Untagged
@@ -292,4 +288,23 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 2.15
+--- !u!114 &6693494082051047749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753842164829301193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba654a9bf3f447f1b8c3d5a71ef918f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FindCandy
+  collider: {fileID: 1039239011487188154}
+  itemFound:
+    m_PersistentCalls:
+      m_Calls: []
+  itemLost:
+    m_PersistentCalls:
+      m_Calls: []

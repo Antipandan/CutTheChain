@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gnomer_eat
+  m_Name: gnomer_stop_eating
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -3787170625321208815, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
+      value: {fileID: 2923075975018163366, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
     - time: 0.13333334
       value: {fileID: 3032116325340892056, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
     - time: 0.26666668
-      value: {fileID: 2923075975018163366, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
+      value: {fileID: -3787170625321208815, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
+    - time: 0.4
+      value: {fileID: -5181639397768227968, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -3787170625321208815, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
-    - {fileID: 3032116325340892056, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
     - {fileID: 2923075975018163366, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
+    - {fileID: 3032116325340892056, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
+    - {fileID: -3787170625321208815, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
+    - {fileID: -5181639397768227968, guid: 174a40d99d3d76a42aeecd0ddcb5bda2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.28333336
+    m_StopTime: 0.4166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,23 +80,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SetAnimationSpeed
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 1
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: PlaySomeSound
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 74ccaa5a7516fa744aff06e282a5c697, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.26666668
-    functionName: SetAnimationSpeed
-    data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 8300000, guid: 5ad4ec2bdea9e7d43a70986577dfea9e, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

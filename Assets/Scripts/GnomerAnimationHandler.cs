@@ -4,10 +4,10 @@ using Utility;
 
 public class GnomerAnimationHandler : MonoBehaviour
 {
-    private static readonly int Greeting = Animator.StringToHash("IsGreating");
+    [SerializeField] private Animator gnomerAnimator;
+    private static readonly int Greeting = Animator.StringToHash("isGreating");
     private static readonly int CandyClose = Animator.StringToHash("candyClose");
     private static readonly int EatingCandy = Animator.StringToHash("eatingCandy");
-    [SerializeField] private Animator gnomerAnimator;
     private bool isEatingCandy = false;
     private bool isCandyClose = false;
     private bool isGreeting = false;
@@ -55,5 +55,10 @@ public class GnomerAnimationHandler : MonoBehaviour
                 gnomerAnimator.SetBool(Greeting, isGreeting);
             }
         }
+    }
+
+    public Animator GnomerAnimator
+    {
+        get => gnomerAnimator;
     }
 }

@@ -59,7 +59,11 @@ public sealed class Star : MonoBehaviour
         {
             SoundPlayer player = SoundPlayerManager.RequestSoundPlayer(clip);
             // This will with a high likelihood not be null since clip is not null.
-            player!.PlaySound();
+            if (player != null)
+            {
+                player!.GetComponent<AudioSource>().volume *= randomSoundses.VolumeScaler;
+                player!.PlaySound();
+            }
         }
         Destroy(star.gameObject);
     }
