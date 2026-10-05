@@ -10,7 +10,9 @@ public class StarCounter : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     private event Action onAmountChanged;
     private uint starsCollected = 0;
-    
+
+    #region Properties
+
     public uint StarsCollected
     {
         get => starsCollected;
@@ -20,6 +22,10 @@ public class StarCounter : MonoBehaviour
     {
         get => (int)starsCollected;
     }
+
+    #endregion
+
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -36,12 +42,16 @@ public class StarCounter : MonoBehaviour
         UnsubscribeEvents();
     }
 
+    #endregion
+
+    #region Custom Methods
+
     private void SubscribeEvents()
     {
+        onAmountChanged -= ChangeStarTotalChange;
         onAmountChanged += ChangeStarTotalChange;
-        // detta fungerar men inte a inline:a?
-        Action increment = Increment;
-        if (Star.onCollectedStar == null || !Star.CollectedStarDelegates.Contains(increment)) Star.onCollectedStar += Increment;
+        Star.onCollectedStar -= Increment;
+        Star.onCollectedStar += Increment;
     }
 
     private void UnsubscribeEvents()
@@ -58,4 +68,7 @@ public class StarCounter : MonoBehaviour
     {
         starsText.text = $"Stars: {starsCollected}";
     }
+
+    #endregion
+
 }

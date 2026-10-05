@@ -15,7 +15,9 @@ public class RopeConnectors : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Tooltip("Audio to be played when cut")]
     [SerializeField] private AudioClip cutSound;
-    
+
+    #region Properties
+
     [NotNull]
     public HingeJoint2D Joint
     {
@@ -55,6 +57,10 @@ public class RopeConnectors : MonoBehaviour
         get => cutSound;
     }
 
+    #endregion
+
+    #region Unity Lifecycle
+    
     private void Awake()
     {
         CheckReferences(out bool allgood);
@@ -69,8 +75,12 @@ public class RopeConnectors : MonoBehaviour
     {
         UnSubscribeEvents();
     }
+    
+    #endregion
 
-    private void SubscribeEvents()
+    #region Custom Methods
+
+    private static void SubscribeEvents()
     {
         if (GameEvents.Instance != null)
         {
@@ -79,7 +89,7 @@ public class RopeConnectors : MonoBehaviour
         }
     }
 
-    private void UnSubscribeEvents()
+    private static void UnSubscribeEvents()
     {
         if (GameEvents.Instance != null)
         {
@@ -96,7 +106,8 @@ public class RopeConnectors : MonoBehaviour
     }
 
     /// <summary>
-    /// Change the gameObject to either be active or inactive. Set to inactive to make this rigidbody act as the endpoint if there is no candy attached
+    /// Change the gameObject to either be active or inactive. Set to inactive to make this rigidbody
+    /// act as the endpoint if there is no candy attached
     /// </summary>
     public void ChangeJointStatus(bool status = true)
     {
@@ -109,4 +120,7 @@ public class RopeConnectors : MonoBehaviour
         ropeConnectors.gameObject.SetActive(false);
         Destroy(ropeConnectors.gameObject);
     }
+
+    #endregion
+    
 }

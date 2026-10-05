@@ -11,6 +11,33 @@ public sealed class Rope : MonoBehaviour
     private List<RopeConnectors> spawnedConnectors = new List<RopeConnectors>();
     private float distance = 0f;
     private Func<float> onSpriteSpawned;
+
+    #region Properties
+
+    public RopeConnectors[] ConnectorPrefabs
+    {
+        get => connectorPrefabs;
+    }
+
+    public Attachable ConnectedItem
+    {
+        get => connectedItem;
+    }
+
+    public List<RopeConnectors> SpawnedConnectors
+    {
+        get => spawnedConnectors;
+    }
+
+    public float Distance
+    {
+        get => distance;
+    }
+
+    #endregion
+
+    #region Unity Lifecycle
+
     private void Awake()
     {
         CheckReferences();
@@ -23,7 +50,11 @@ public sealed class Rope : MonoBehaviour
         // MakeRope();
     }
 
-    private void MakeRope()
+    #endregion
+    
+    #region Custom Methods
+    
+        private void MakeRope()
     {
         SpawnConnectors();
         ConfigureAllRopeConnectors();
@@ -102,4 +133,7 @@ public sealed class Rope : MonoBehaviour
         if (connectorPrefabs == null || connectorPrefabs.Length == 0) Logging.LogEmptyCollectionError(nameof(connectorPrefabs), ErrorSeverity.Warning, gameObject);
         ReferenceValidator.CheckComponentForNull(ref connectedItem, gameObject, nameof(connectedItem) ,ErrorSeverity.Warning);
     }
+    
+    #endregion
+    
 }

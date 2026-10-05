@@ -9,7 +9,9 @@ public sealed class Star : MonoBehaviour
     [SerializeField] public UnityEvent onStarCollectedEvent;
     public static Action onCollectedStar;
     private static event Action<Star> onStarCollected;
-    
+
+    #region Properties
+
     public static int NrOnStarCollected
     {
         get => onStarCollected == null ? 0 : onStarCollected.GetInvocationList().Length;
@@ -20,10 +22,9 @@ public sealed class Star : MonoBehaviour
         get => onCollectedStar == null ? 0 : onCollectedStar.GetInvocationList().Length;
     }
 
-    public static Delegate[] CollectedStarDelegates
-    {
-        get => onCollectedStar?.GetInvocationList();
-    }
+    #endregion
+
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -35,16 +36,25 @@ public sealed class Star : MonoBehaviour
     {
         if (NrOnStarCollected == 0) SubscribeEvents();
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out Candy _)) PublishOnStarCollected(this);
+    }
 
     private void OnDisable()
     {
         if (NrOnStarCollected != 0) UnsubscribeEvents();
     }
-
+    
     private void OnDestroy()
     {
         UnsubscribeEvents();
     }
+
+    #endregion
+
+    #region Custom Methods
 
     private void Setup()
     {
@@ -68,11 +78,6 @@ public sealed class Star : MonoBehaviour
         Destroy(star.gameObject);
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out Candy _)) PublishOnStarCollected(this);
-    }
-
     private void SubscribeEvents()
     {
         onStarCollected += CollectStar;
@@ -93,4 +98,7 @@ public sealed class Star : MonoBehaviour
         onCollectedStar?.Invoke();
         onStarCollected?.Invoke(star);
     }
+
+    #endregion
+    
 }

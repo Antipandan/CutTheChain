@@ -9,6 +9,22 @@ public sealed class RandomSounds : ScriptableObject
     [SerializeField] private AudioClip[] sounds;
     private static Random random = new Random();
 
+    #region Properties
+
+    public float VolumeScaler
+    {
+        get => volumeScaler;
+    }
+    
+    public static Random @Random
+    {
+        get => random;
+    }
+
+    #endregion
+
+    #region Custom Methods
+
     public AudioClip GetRandomSound()
     {
         if (sounds.Length == 0) return null;
@@ -23,9 +39,6 @@ public sealed class RandomSounds : ScriptableObject
         return sounds[rand.Next(sounds.Length)];
     }
 
-    public float VolumeScaler
-    {
-        get => volumeScaler;
-    }
-    
+    #endregion
+
 }

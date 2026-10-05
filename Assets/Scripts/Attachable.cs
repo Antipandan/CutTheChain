@@ -8,6 +8,8 @@ public abstract class Attachable : MonoBehaviour
     [SerializeField] protected Rigidbody2D rigidBody2D;
     [SerializeField] [CanBeNull] protected CircleCollider2D circleCollider;
 
+    #region Custom Methods
+    
     protected virtual void CheckReferences()
     {
         ReferenceValidator.CheckComponentForNull(ref rigidBody2D, gameObject,nameof(rigidBody2D));
@@ -33,4 +35,7 @@ public abstract class Attachable : MonoBehaviour
     {
         return;
     }
+    
+    #endregion
+
 }

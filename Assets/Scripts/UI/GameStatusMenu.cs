@@ -15,6 +15,8 @@ public class GameStatusMenu : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Button exitMainMenuButton;
     [SerializeField] private TextMeshProUGUI exitGameButtonText;
     [SerializeField] private UnityEngine.UI.Button exitGameButton;
+    
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -31,8 +33,12 @@ public class GameStatusMenu : MonoBehaviour
     {
         UnSubscribeEvents();
     }
+
+    #endregion
+
+    #region Custom Methods
     
-    private void CheckReferences()
+        private void CheckReferences()
     {
         ReferenceValidator.CheckComponentForNull(ref gameStatusMenuObject, gameObject, nameof(gameStatusMenuObject));
         ReferenceValidator.CheckComponentForNull(ref gameStatusText, gameObject, nameof(gameStatusText));
@@ -82,4 +88,7 @@ public class GameStatusMenu : MonoBehaviour
     {
         EnableMenu();
     }
+    
+    #endregion
+
 }

@@ -12,10 +12,7 @@ public class GnomerAnimationHandler : MonoBehaviour
     private bool isCandyClose = false;
     private bool isGreeting = false;
 
-    private void Awake()
-    {
-        ReferenceValidator.CheckComponentForNull(ref gnomerAnimator, gameObject, nameof(gnomerAnimator), ErrorSeverity.Warning);
-    }
+    #region Properties
 
     public bool IsEatingCandy
     {
@@ -61,4 +58,16 @@ public class GnomerAnimationHandler : MonoBehaviour
     {
         get => gnomerAnimator;
     }
+
+    #endregion
+
+    #region Unity Lifecycle
+
+    private void Awake()
+    {
+        ReferenceValidator.CheckComponentForNull(ref gnomerAnimator, gameObject, nameof(gnomerAnimator), ErrorSeverity.Warning);
+    }
+
+    #endregion
+
 }

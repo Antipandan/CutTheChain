@@ -8,22 +8,32 @@ using CustomUtility;
 public class RestartButton : MonoBehaviour
 {
     [SerializeField] private Button restartButton;
-
+    
+    #region Unity Lifecycle
+    
     private void Awake()
     {
         CheckReferences();
     }
+    
+    private void OnEnable()
+    {
+        SubscribeButtonEvents();
+    }
+    
+    private void OnDisable()
+    {
+        UnSubscribeButtonEvents();
+    }
+    #endregion
+
+    #region Custom Methods
 
     private void CheckReferences()
     {
         ReferenceValidator.CheckComponentForNull(ref restartButton, gameObject, nameof(restartButton));
     }
-
-    private void Start()
-    {
-        SubscribeButtonEvents();
-    }
-
+    
     private void SubscribeButtonEvents()
     {
         restartButton.onClick.RemoveListener(Reload);
@@ -41,8 +51,6 @@ public class RestartButton : MonoBehaviour
         restartButton.onClick.RemoveListener(Reload);
     }
 
-    private void OnDestroy()
-    {
-        UnSubscribeButtonEvents();
-    }
+    #endregion
+
 }

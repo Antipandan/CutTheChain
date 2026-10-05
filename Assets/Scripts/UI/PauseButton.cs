@@ -12,10 +12,16 @@ public class PauseButton : MonoBehaviour
     [SerializeField] private PauseImages images;
     private bool isPaused = false;
 
+    #region Properties
+
     public bool IsPaused
     {
         get => isPaused;
     }
+
+    #endregion
+    
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -27,8 +33,17 @@ public class PauseButton : MonoBehaviour
         if (GameEvents.Instance == null) return;
         SubscribeAllEvents();
     }
+    
+    private void OnDisable()
+    {
+        UNSubscribeAllEvents();
+    }
 
-    private void CheckReferences()
+    #endregion
+
+    #region Custom Methods
+
+        private void CheckReferences()
     {
         ReferenceValidator.CheckComponentForNull(ref pauseButton, gameObject, nameof(pauseButton));
         ReferenceValidator.CheckComponentForNull(ref pauseButtonImage, gameObject, nameof(pauseButtonImage));
@@ -73,6 +88,7 @@ public class PauseButton : MonoBehaviour
     
     private void SubscribeEvents()
     {
+        if (GameEvents.Instance == null) return;
         GameEvents.Instance.onGameResumed -= OnResume;
         GameEvents.Instance.onGameResumed += OnResume;
         GameEvents.Instance.onGamePaused -= OnPause;
@@ -86,12 +102,11 @@ public class PauseButton : MonoBehaviour
 
     private void UnSubscribeEvents()
     {
+        if (GameEvents.Instance == null) return;
         GameEvents.Instance.onGamePaused -= OnPause;
         GameEvents.Instance.onGameResumed -= OnResume;
     }
 
-    private void OnDisable()
-    {
-        UNSubscribeAllEvents();
-    }
+    #endregion
+
 }

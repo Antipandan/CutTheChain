@@ -22,6 +22,9 @@ public sealed class GameEvents : MonoBehaviour
 
     public Action onRestart;
 
+
+    #region Properties
+    
     [CanBeNull]
     public static GameEvents Instance
     {
@@ -33,41 +36,26 @@ public sealed class GameEvents : MonoBehaviour
         }
     }
 
-    private int NrSubscribedDelegatesGameResumed
+    #endregion
+
+    #region Unity Lifecycle
+
+    private void Awake()
     {
-        get => onGameResumed.GetInvocationList().Length;
+        CheckSingleton();
+        // bad usage of events replace with direct method calls!
+        SubscribeStaticEvents();
+        PublishAllStaticEvents();
     }
 
-    public int NrSubscribedDelegatesRestart
+    private void OnEnable()
     {
-        get => onGameResumed.GetInvocationList().Length;
+        CheckSingleton();
     }
 
-    public int NrSubscribedDelegatesGamePause
-    {
-        get => onGamePaused.GetInvocationList().Length;
-    }
+    #endregion
 
-    public bool ContainsDelegatePauseGame(Action function)
-    {
-        if (onGamePaused == null) return false;
-        Delegate[] delegates = onGamePaused.GetInvocationList();
-        return onGamePaused != null && delegates.Length > 0 && delegates.Contains(function);
-    }
-
-    public bool ContainsDelegateResumeGame(Action function)
-    {
-        if (onGameResumed == null) return false;
-        Delegate[] delegates = onGameResumed.GetInvocationList();
-        return delegates.Length > 0 && delegates.Contains(function);
-    }
-
-    public bool ContainsDelegateRestartGame(Action function)
-    {
-        if (onRestart == null) return false;
-        Delegate[] delegates = onRestart.GetInvocationList();
-        return onRestart != null && delegates.Length > 0 && delegates.Contains(function);
-    }
+    #region Custom Methods
 
     private void SubscribeStaticEvents()
     {
@@ -97,7 +85,7 @@ public sealed class GameEvents : MonoBehaviour
             onStaticAwake?.Invoke();
         }
     }
-
+    
     private static IStaticAwake[] FindAllStaticAwakes()
     {
         List<IStaticAwake> results = new List<IStaticAwake>();
@@ -109,19 +97,6 @@ public sealed class GameEvents : MonoBehaviour
         return results.ToArray();
     }
     
-    private void Awake()
-    {
-        CheckSingleton();
-        // bad usage of events replace with direct method calls!
-        SubscribeStaticEvents();
-        PublishAllStaticEvents();
-    }
-
-    private void OnEnable()
-    {
-        CheckSingleton();
-    }
-
     private void CheckSingleton()
     {
         // Fixes error when reloading a scene in editor where instance is null
@@ -137,7 +112,7 @@ public sealed class GameEvents : MonoBehaviour
     {
         onGamePaused?.Invoke();
     }
-
+    
     public void PublishOnRestart()
     {
         onRestart?.Invoke();
@@ -158,4 +133,7 @@ public sealed class GameEvents : MonoBehaviour
     {
         onRopeCut?.Invoke(ropeConnector);
     }
+
+    #endregion
+
 }

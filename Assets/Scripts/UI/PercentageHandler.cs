@@ -10,11 +10,26 @@ public class PercentageHandler : MonoBehaviour
 {
     [SerializeField] [Range(0, 10)]private int decimals = 1;
     [SerializeField] private TextMeshProUGUI percentageText;
+    
+    #region Properties
 
+    public int Decimals
+    {
+        get => decimals;
+    }
+
+    #endregion
+
+    #region Unity Lifecycle
+    
     private void Awake()
     {
         CheckReferences();       
     }
+    
+    #endregion
+
+    #region Custom Methods
 
     private void CheckReferences()
     {
@@ -50,4 +65,7 @@ public class PercentageHandler : MonoBehaviour
     {
         if (percentageText != null) percentageText.text = $"{Math.Round(percentage * 100, decimals).ToString(CultureInfo.InvariantCulture)}%";
     }
+
+    #endregion
+    
 }

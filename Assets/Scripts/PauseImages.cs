@@ -8,6 +8,9 @@ public class PauseImages : ScriptableObject
 {
     [SerializeField] private Sprite restartImage;
     [SerializeField] private Sprite pauseImage;
+
+    #region Properties
+
     [CanBeNull]
     public Sprite RestartImage
     {
@@ -19,5 +22,7 @@ public class PauseImages : ScriptableObject
     {
         get => pauseImage;
     }
+
+    #endregion
     
 }

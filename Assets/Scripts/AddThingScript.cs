@@ -13,16 +13,13 @@ public abstract class AddThingScript<TValidTarget> : MonoBehaviour where TValidT
     [Tooltip("Optional event if user wants extra functionality")]
     [SerializeField] public UnityEvent itemLost;
 
+    #region Unity Lifecycle
+
     protected void Awake()
     {
         CheckReferences();
     }
-
-    protected virtual void CheckReferences()
-    {
-        ReferenceValidator.CheckComponentForNull(ref collider, gameObject, ErrorSeverity.Warning);
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         TValidTarget foundObject = other.gameObject.GetComponent<TValidTarget>();
@@ -36,4 +33,16 @@ public abstract class AddThingScript<TValidTarget> : MonoBehaviour where TValidT
         if (foundObject == null) return;
         itemLost?.Invoke();
     }
+
+    #endregion
+
+    #region Custom Methods
+    
+    protected virtual void CheckReferences()
+    {
+        ReferenceValidator.CheckComponentForNull(ref collider, gameObject, ErrorSeverity.Warning);
+    }
+    
+    #endregion
+
 }

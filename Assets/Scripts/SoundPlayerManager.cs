@@ -8,6 +8,8 @@ using Object = UnityEngine.Object;
 
 public static class SoundPlayerManager
 {
+    #region Custom Methods
+
     [CanBeNull]
     public static SoundPlayer RequestSoundPlayer([CanBeNull] AudioClip clip, float volume = 1f, float pitch = 1f)
     {
@@ -64,4 +66,6 @@ public static class SoundPlayerManager
     {
         return Mathf.Clamp(pitch, -3f, 3f);
     }
+
+    #endregion
 }

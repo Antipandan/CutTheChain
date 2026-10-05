@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private event Action onFruitEaten;
-    
+
+    #region Properties
+
     public event Action OnFruitEaten
     {
         add => onFruitEaten += value;
@@ -18,12 +20,20 @@ public class GameManager : MonoBehaviour
     {
         get => instance;
     }
-    
+
+    #endregion
+
+    #region Unity Lifecycle
+
     private void Awake()
     {
         CheckForSingleton();
     }
 
+    #endregion
+
+    #region Custom Methods
+    
     private void CheckForSingleton()
     {
         if (instance == null) instance = this;
@@ -34,5 +44,7 @@ public class GameManager : MonoBehaviour
     {
         onFruitEaten?.Invoke();
     }
-
+    
+    #endregion
+    
 }

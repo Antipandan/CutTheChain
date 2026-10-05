@@ -8,6 +8,15 @@ public sealed class Gnomer : MonoBehaviour
     [SerializeField] private GnomerAnimationHandler gnomerAnimationHandler;
     [SerializeField] private FindCandy findCandy;
     [SerializeField] [Range(0f, 360f)] private float greetDelay = 15f;
+
+    #region Properties
+
+    public float GreetDelay
+    {
+        get => greetDelay;
+    }
+
+    #endregion
     
     #region Unity Lifecycle Methods
 
@@ -61,7 +70,6 @@ public sealed class Gnomer : MonoBehaviour
     // preferable internal use
     private void OnCloseMouthStart()
     {
-        return;
         gnomerAnimationHandler.GnomerAnimator.speed = 1f;
     }
 

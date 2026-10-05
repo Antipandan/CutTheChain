@@ -10,6 +10,22 @@ public class MouseCutter : MonoBehaviour
     private CircleCollider2D circleCollider2D;
     private static Camera mainCamera;
 
+    #region Properties
+    
+    public static Camera MainCamera
+    {
+        get => mainCamera;
+    }
+    
+    #endregion
+
+    #region Unity Lifecycle
+    
+    private void Awake()
+    {
+        CheckReferences();
+    }
+    
     private void OnTriggerStay2D(Collider2D other)
     {
         if (Mouse.current.leftButton.isPressed && other.gameObject.TryGetComponent(out RopeConnectors ropePart))
@@ -17,23 +33,24 @@ public class MouseCutter : MonoBehaviour
             CutChain(ropePart);
         }
     }
-
-    private void Awake()
+    
+    private void Update()
     {
-        CheckReferences();
+        gameObject.transform.position = MousePositionWorldSpace();
     }
+    
+    #endregion
 
+    #region Custom Methods
+
+    
     private void CheckReferences()
     {
         ReferenceValidator.CheckComponentForNull(ref circleCollider2D, gameObject, out bool wasNull, nameof(circleCollider2D));
         if (!wasNull) ConfigureCircleCollider2D(circleCollider2D);
         if (mainCamera == null) mainCamera = Camera.main;
     }
-
-    private void Update()
-    {
-        gameObject.transform.position = MousePositionWorldSpace();
-    }
+    
 
     private static void CutChain(RopeConnectors ropePart)
     {
@@ -74,4 +91,7 @@ public class MouseCutter : MonoBehaviour
     {
         return mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
+
+    #endregion
+
 }
