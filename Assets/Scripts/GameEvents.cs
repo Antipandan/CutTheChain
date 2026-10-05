@@ -4,6 +4,7 @@ using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 using CustomUtility;
+using JetBrains.Annotations;
 using Logging = CustomUtility.Logging;
 using Object = UnityEngine.Object;
 
@@ -19,6 +20,7 @@ public sealed class GameEvents : MonoBehaviour
 
     public Action onRestart;
 
+    [CanBeNull]
     public static GameEvents Instance
     {
         get

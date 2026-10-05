@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameStatusText;
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button ExitMainMenuButton;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
         ReferenceValidator.CheckComponentForNull(ref gameStatusText, gameObject, nameof(gameStatusText));
         ReferenceValidator.CheckComponentForNull(ref ResumeButton, gameObject, nameof(ResumeButton));
         ReferenceValidator.CheckComponentForNull(ref restartButton, gameObject, nameof(restartButton));
+        ReferenceValidator.CheckComponentForNull(ref ExitMainMenuButton, gameObject, nameof(ExitMainMenuButton));
     }
 
     private void OnEnable()
@@ -49,19 +51,35 @@ public class PauseMenu : MonoBehaviour
     {
         // this is apparently safe and good to do in c#? https://stackoverflow.com/questions/367523/how-to-ensure-an-event-is-only-subscribed-to-once
         // check comment for further discussion
-        GameEvents.Instance.onGamePaused -= OnPause;
-        GameEvents.Instance.onGamePaused += OnPause;
-        GameEvents.Instance.onGameResumed -= OnResume;
-        GameEvents.Instance.onGameResumed += OnResume;
-        GameManager.Instance.OnFruitEaten -= OnGameOver;
-        GameManager.Instance.OnFruitEaten += OnGameOver;
+        if (ExitMainMenuButton != null)
+        {
+            ExitMainMenuButton.onClick.RemoveListener(OnExitMainMenu);
+            ExitMainMenuButton.onClick.AddListener(OnExitMainMenu);
+        }
+        if (GameEvents.Instance != null)
+        {
+            GameEvents.Instance.onGamePaused -= OnPause;
+            GameEvents.Instance.onGamePaused += OnPause;
+            GameEvents.Instance.onGameResumed -= OnResume;
+            GameEvents.Instance.onGameResumed += OnResume;
+        }
+        
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnFruitEaten -= OnGameOver;
+            GameManager.Instance.OnFruitEaten += OnGameOver;
+        }
+
     }
 
     private void UnSubscribeEvents()
     {
-        GameManager.Instance.OnFruitEaten -= OnGameOver;
-        GameEvents.Instance.onGamePaused -= OnPause;
-        GameEvents.Instance.onGameResumed -= OnResume;
+        if (GameManager.Instance != null) GameManager.Instance.OnFruitEaten -= OnGameOver;
+        if (GameEvents.Instance != null)
+        {
+            GameEvents.Instance.onGamePaused -= OnPause;
+            GameEvents.Instance.onGameResumed -= OnResume;
+        }
     }
     
     private void OnPause()
@@ -72,6 +90,12 @@ public class PauseMenu : MonoBehaviour
     private void OnResume()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnExitMainMenu()
+    {
+        gameObject.SetActive(false);
+        GameFunctions.LoadMainMenuScene();
     }
 
     private void OnGameOver()
