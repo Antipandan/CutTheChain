@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Utility
+namespace CustomUtility
 {
     // Unity events dont accept static function in the inspector fully. This is a work around for that
     public class GameFunctions : MonoBehaviour

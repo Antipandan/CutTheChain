@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using Utility;
+using CustomUtility;
 
 public sealed class Star : MonoBehaviour
 {

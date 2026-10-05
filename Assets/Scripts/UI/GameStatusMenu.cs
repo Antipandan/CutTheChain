@@ -2,7 +2,7 @@
 using System;
 using TMPro;
 using UnityEngine.UIElements;
-using Utility;
+using CustomUtility;
 
 public class GameStatusMenu : MonoBehaviour
 {
@@ -46,8 +46,12 @@ public class GameStatusMenu : MonoBehaviour
 
     private void SubscribeToEvents()
     {
-        GameManager.Instance.OnFruitEaten -= OnGameOver;  
-        GameManager.Instance.OnFruitEaten += OnGameOver;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnFruitEaten -= OnGameOver;  
+            GameManager.Instance.OnFruitEaten += OnGameOver; 
+        }
+        else Logging.LogNullReferenceError(nameof(GameManager) + " Instance", ErrorSeverity.Warning, gameObject);
         restartButton.onClick?.RemoveListener(GameFunctions.ReloadScene);
         restartButton.onClick?.AddListener(GameFunctions.ReloadScene);
         exitGameButton.onClick.RemoveListener(GameFunctions.ExitGame);
@@ -61,7 +65,7 @@ public class GameStatusMenu : MonoBehaviour
         restartButton.onClick?.RemoveListener(GameFunctions.ReloadScene);
         exitMainMenuButton.onClick?.RemoveListener(GameFunctions.LoadMainMenuScene);
         exitGameButton.onClick?.RemoveListener(GameFunctions.ExitGame);
-        GameManager.Instance.OnFruitEaten -= OnGameOver;  
+        if (GameManager.Instance != null) GameManager.Instance.OnFruitEaten -= OnGameOver;  
     }
 
     private void DisableMenu()

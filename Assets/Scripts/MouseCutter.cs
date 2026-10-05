@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Utility;
+using CustomUtility;
 using Object = UnityEngine.Object;
 
 [RequireComponent(typeof(CircleCollider2D))]

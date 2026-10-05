@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
         remove => onFruitEaten -= value;
     }
 
+    [CanBeNull]
     public static GameManager Instance
     {
         get => instance;

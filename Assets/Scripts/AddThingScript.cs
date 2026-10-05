@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using Utility;
+using CustomUtility;
 
 [RequireComponent(typeof(Collider2D))]
 public abstract class AddThingScript<TValidTarget> : MonoBehaviour where TValidTarget : MonoBehaviour

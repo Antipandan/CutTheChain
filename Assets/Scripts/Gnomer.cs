@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using Utility;
+using CustomUtility;
 
 public sealed class Gnomer : MonoBehaviour
 {

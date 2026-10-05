@@ -2,7 +2,7 @@ using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
-using Utility;
+using CustomUtility;
 
 [RequireComponent(typeof(Button))]
 public class RestartButton : MonoBehaviour

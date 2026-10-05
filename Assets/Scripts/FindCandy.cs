@@ -1,4 +1,4 @@
-﻿using Utility;
+﻿using CustomUtility;
 
 public class FindCandy : AddThingScript<Candy>
 {

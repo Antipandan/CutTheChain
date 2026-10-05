@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
-using Utility;
+using CustomUtility;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(HingeJoint2D))]
 public abstract class Attachable : MonoBehaviour

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
-using Utility;
-using Logging = Utility.Logging;
+using CustomUtility;
+using Logging = CustomUtility.Logging;
 using Object = UnityEngine.Object;
 
 public sealed class GameEvents : MonoBehaviour

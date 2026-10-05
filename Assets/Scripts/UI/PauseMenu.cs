@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Utility;
+using CustomUtility;
 
 public class PauseMenu : MonoBehaviour
 {

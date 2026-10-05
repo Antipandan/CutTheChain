@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08431f03d6d9ccf4580432d00eb83aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Star
-  StarPickupSounds: {fileID: 11400000, guid: c94ac419e868fa94cac6c272e0e7acb6, type: 2}
+  randomSoundses: {fileID: 11400000, guid: c94ac419e868fa94cac6c272e0e7acb6, type: 2}
   onStarCollectedEvent:
     m_PersistentCalls:
       m_Calls: []

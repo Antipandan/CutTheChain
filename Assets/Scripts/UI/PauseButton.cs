@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using UnityEngine.UI;
-using Utility;
+using CustomUtility;
 
 [RequireComponent(typeof(Button))]
 public class PauseButton : MonoBehaviour

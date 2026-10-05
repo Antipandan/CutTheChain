@@ -4,7 +4,7 @@ using System;
 using System.Globalization;
 using TMPro;
 using Unity.Mathematics;
-using Utility;
+using CustomUtility;
 
 public class PercentageHandler : MonoBehaviour
 {

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using Object = UnityEngine.Object;
 
 
-namespace Utility
+namespace CustomUtility
 {
     public static class Logging
     {

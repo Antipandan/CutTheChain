@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-using Utility;
+using CustomUtility;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(HingeJoint2D))]
 public class Anchor : MonoBehaviour

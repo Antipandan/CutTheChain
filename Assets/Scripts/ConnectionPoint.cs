@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using JetBrains.Annotations;
-using Utility;
+using CustomUtility;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ConnectionPoint : MonoBehaviour

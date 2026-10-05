@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
-using Utility;
+using CustomUtility;
 using Object = UnityEngine.Object;
 
-namespace Utility
+namespace CustomUtility
 {
     public static class ReferenceValidator
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
-using Utility;
+using CustomUtility;
 
 public sealed class Rope : MonoBehaviour
 {

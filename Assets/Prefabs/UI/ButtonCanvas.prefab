@@ -367,7 +367,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3959639185242454605, guid: 3fd9420fef9250cbdac6c8f247262935, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -375,6 +376,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4406896703930598355}
   m_SourcePrefab: {fileID: 100100000, guid: 3fd9420fef9250cbdac6c8f247262935, type: 3}
+--- !u!114 &2388439705349459974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317395211851420422, guid: 3fd9420fef9250cbdac6c8f247262935, type: 3}
+  m_PrefabInstance: {fileID: 7561085846285140736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103637581971132674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &4227520290901778096 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5928272896307469744, guid: 3fd9420fef9250cbdac6c8f247262935, type: 3}
@@ -397,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383643ad96864fbf83c7dca484cf1df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestartButton
-  restartButton: {fileID: 0}
+  restartButton: {fileID: 2388439705349459974}
 --- !u!1001 &7602967116044910984
 PrefabInstance:
   m_ObjectHideFlags: 0
