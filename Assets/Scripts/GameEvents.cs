@@ -48,11 +48,6 @@ public sealed class GameEvents : MonoBehaviour
         PublishAllStaticEvents();
     }
 
-    private void OnEnable()
-    {
-        CheckSingleton();
-    }
-
     #endregion
 
     #region Custom Methods
@@ -99,8 +94,7 @@ public sealed class GameEvents : MonoBehaviour
     
     private void CheckSingleton()
     {
-        // Fixes error when reloading a scene in editor where instance is null
-        if (instance == null || instance == this) instance = this;
+        if (instance == null) instance = this;
         else
         {
             Logging.LogSingletonError(nameof(instance), ErrorSeverity.Error);
