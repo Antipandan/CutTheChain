@@ -13,6 +13,8 @@ public sealed class GameEvents : MonoBehaviour
     private static GameEvents instance;
 
     public Action onStaticAwake;
+
+    public Action<RopeConnectors> onRopeCut;
     
     public Action onGamePaused;
 
@@ -150,5 +152,10 @@ public sealed class GameEvents : MonoBehaviour
     public void PublishOnStaticAwake()
     {
         onStaticAwake?.Invoke();
+    }
+    
+    public void PublishOnRopeCut(RopeConnectors ropeConnector)
+    {
+        onRopeCut?.Invoke(ropeConnector);
     }
 }

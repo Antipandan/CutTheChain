@@ -38,8 +38,7 @@ public class MouseCutter : MonoBehaviour
     private static void CutChain(RopeConnectors ropePart)
     {
         if (ropePart == null) return;
-        SoundPlayer player = SoundPlayerManager.RequestSoundPlayer(ropePart.CutSound);
-        if (player != null) player.PlaySound();
+        GameEvents.Instance?.PublishOnRopeCut(ropePart);
         ropePart.gameObject.SetActive(false);
         Destroy(ropePart.gameObject);
     }
