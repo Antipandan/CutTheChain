@@ -55,7 +55,6 @@ public class MouseCutter : MonoBehaviour
     private static void CutChain(RopeConnectors ropePart)
     {
         if (ropePart == null) return;
-        Debug.Log($"rope!");
         ropePart.OnRopeCut();
     }
 
