@@ -764,14 +764,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3416030306971934432, guid: 661e2c60dd2ba5c47b3ba704a23ed627, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3416030306971934432, guid: 661e2c60dd2ba5c47b3ba704a23ed627, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3416030306971934432, guid: 661e2c60dd2ba5c47b3ba704a23ed627, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 31383529}
