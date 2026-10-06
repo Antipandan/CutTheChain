@@ -100,6 +100,7 @@ public class PauseMenu : MonoBehaviour
     private void OnExitMainMenu()
     {
         gameObject.SetActive(false);
+        GameFunctions.ResumeGame();
         GameFunctions.LoadMainMenuScene();
     }
 

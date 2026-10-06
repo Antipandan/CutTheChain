@@ -65,37 +65,10 @@ public class RopeConnectors : MonoBehaviour
     {
         CheckReferences(out bool allgood);
     }
-
-    private void OnEnable()
-    {
-        SubscribeEvents();
-    }
-
-    private void OnDisable()
-    {
-        UnSubscribeEvents();
-    }
     
     #endregion
 
     #region Custom Methods
-
-    private static void SubscribeEvents()
-    {
-        if (GameEvents.Instance != null)
-        {
-            GameEvents.Instance.onRopeCut -= OnRopeCut;
-            GameEvents.Instance.onRopeCut += OnRopeCut;
-        }
-    }
-
-    private static void UnSubscribeEvents()
-    {
-        if (GameEvents.Instance != null)
-        {
-            GameEvents.Instance.onRopeCut -= OnRopeCut;
-        }
-    }
 
     private void CheckReferences(out bool allGood)
     {
@@ -114,11 +87,11 @@ public class RopeConnectors : MonoBehaviour
         joint.enabled = status;
     }
 
-    private static void OnRopeCut(RopeConnectors ropeConnectors)
+    public void OnRopeCut()
     {
-        if (ropeConnectors.cutSound != null) SoundPlayerManager.RequestSoundPlayer(ropeConnectors.cutSound)?.PlaySound();
-        ropeConnectors.gameObject.SetActive(false);
-        Destroy(ropeConnectors.gameObject);
+        if (cutSound != null) SoundPlayerManager.RequestSoundPlayer(cutSound)?.PlaySound();
+        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     #endregion

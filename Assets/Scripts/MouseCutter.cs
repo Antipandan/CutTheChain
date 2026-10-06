@@ -55,9 +55,8 @@ public class MouseCutter : MonoBehaviour
     private static void CutChain(RopeConnectors ropePart)
     {
         if (ropePart == null) return;
-        GameEvents.Instance?.PublishOnRopeCut(ropePart);
-        ropePart.gameObject.SetActive(false);
-        Destroy(ropePart.gameObject);
+        Debug.Log($"rope!");
+        ropePart.OnRopeCut();
     }
 
     private static void EnsureProperDestruction(RopeConnectors ropePart)
