@@ -1,5 +1,5 @@
 # Cut The Chain
-Copy of the game Cut the Chain made in Unity version 6000.3.9f1 made as a school project.
+Copy of the game Cut the Rope made in Unity version 6000.3.9f1 made as a school project.
 <img src = "Assets/Recordings/GameDemonstration.gif">
 ## Setup 
 Download the zip / tar.gz files. Extract and run the game .exe / .X86_64.
